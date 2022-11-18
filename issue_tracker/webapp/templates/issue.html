@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'index' %}">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'update'  issue.pk %}">Update</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'delete'  issue.pk %}">Delete</a>
+    </li>
+{% endblock %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <h1>Issue Details</h1>
+    {% include 'partial/card.html' with issue=issue %}
+{% endblock %}

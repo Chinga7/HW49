@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'index' %}">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'create' %}">Create</a>
+    </li>
+{% endblock %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <h1>Issues</h1>
+        {% for issue in issues %}
+             {% include 'partial/cards.html' %}
+        {% endfor %}
+        <p></p>
+
+{% endblock %}
