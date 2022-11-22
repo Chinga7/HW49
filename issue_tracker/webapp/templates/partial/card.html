@@ -1,8 +1,13 @@
  <div class="card" style="width: 18rem;">
       <div class="card-body">
           <h5 class="card-title">{{ issue.summary }} </h5>
-          <h6 class="card-subtitle mb-2 text-muted"><i>Type:</i> {{ issue.type.type_name }}</h6>
           <h6 class="card-subtitle mb-2 text-muted"><i>Status: </i> {{ issue.status.status_name }}</h6>
+          <h6 class="card-subtitle mb-2 text-muted"><i>Type:</i>
+           {% for type in issue.type.all %}
+              {{ type.name }}
+              {% if not forloop.last %}, {% endif %}
+              {% endfor %}
+          </h6>
           <p class="card-text">{{ issue.description|linebreaks }}</p>
       </div>
     </div>
