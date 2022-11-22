@@ -1,0 +1,98 @@
+[
+{
+    "model": "webapp.issue_type",
+    "pk": 1,
+    "fields": {
+        "issue": 1,
+        "type": 1
+    }
+},
+{
+    "model": "webapp.issue_type",
+    "pk": 2,
+    "fields": {
+        "issue": 1,
+        "type": 2
+    }
+},
+{
+    "model": "webapp.issue_type",
+    "pk": 3,
+    "fields": {
+        "issue": 2,
+        "type": 2
+    }
+},
+{
+    "model": "webapp.issue_type",
+    "pk": 4,
+    "fields": {
+        "issue": 2,
+        "type": 3
+    }
+},
+{
+    "model": "webapp.issue_type",
+    "pk": 5,
+    "fields": {
+        "issue": 3,
+        "type": 1
+    }
+},
+{
+    "model": "webapp.issue_type",
+    "pk": 6,
+    "fields": {
+        "issue": 3,
+        "type": 2
+    }
+},
+{
+    "model": "webapp.issue_type",
+    "pk": 7,
+    "fields": {
+        "issue": 4,
+        "type": 2
+    }
+},
+{
+    "model": "webapp.issue_type",
+    "pk": 8,
+    "fields": {
+        "issue": 4,
+        "type": 3
+    }
+},
+{
+    "model": "webapp.issue_type",
+    "pk": 9,
+    "fields": {
+        "issue": 5,
+        "type": 1
+    }
+},
+{
+    "model": "webapp.issue_type",
+    "pk": 10,
+    "fields": {
+        "issue": 5,
+        "type": 3
+    }
+},
+{
+    "model": "webapp.issue_type",
+    "pk": 11,
+    "fields": {
+        "issue": 6,
+        "type": 2
+    }
+},
+{
+    "model": "webapp.issue_type",
+    "pk": 12,
+    "fields": {
+        "issue": 6,
+        "type": 3
+    }
+}
+]

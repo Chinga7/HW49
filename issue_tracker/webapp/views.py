@@ -31,12 +31,9 @@ class CreateView(View):
     def post(self, request):
         issue_form = IssueForm(data=request.POST)
         if issue_form.is_valid():
-            issue = Issue.objects.create(
-                summary=issue_form.cleaned_data['summary'],
-                description=issue_form.cleaned_data['description'],
-                type=issue_form.cleaned_data['type'],
-                status=issue_form.cleaned_data['status']
-            )
+            issue_type = issue_form.cleaned_data.pop('type')
+            issue = Issue.objects.create(**issue_form.cleaned_data)
+            issue.type.set(issue_type)
             return redirect('issue', issue.pk)
         else:
             context = {
@@ -53,7 +50,7 @@ class UpdateView(View):
             'issue_form': IssueForm(initial={
                 'summary': issue.summary,
                 'description': issue.description,
-                'type': issue.type,
+                'type': issue.type.all(),
                 'status': issue.status
             })
         }
@@ -65,9 +62,9 @@ class UpdateView(View):
         if issue_form.is_valid():
             issue.summary = issue_form.cleaned_data['summary']
             issue.description = issue_form.cleaned_data['description']
-            issue.type = issue_form.cleaned_data['type']
             issue.status = issue_form.cleaned_data['status']
             issue.save()
+            issue.type.set(issue_form.cleaned_data['type'])
             return redirect('issue', issue.pk)
         else:
             return render(request, 'update.html', {'issue_form': issue_form})
@@ -83,5 +80,3 @@ class DeleteView(View):
         issue = get_object_or_404(Issue, pk=pk)
         issue.delete()
         return redirect('index')
-
-# Create your views here.

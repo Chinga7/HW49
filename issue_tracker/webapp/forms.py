@@ -10,5 +10,5 @@ class IssueForm(forms.Form):
                                       "cols": 22,
                                       "rows": 3
                                   }))
-    type = forms.ModelChoiceField(queryset=Type.objects.all(), label='Type')
+    type = forms.ModelMultipleChoiceField(queryset=Type.objects.all(), widget=forms.CheckboxSelectMultiple, label='Type')
     status = forms.ModelChoiceField(queryset=Status.objects.all())
