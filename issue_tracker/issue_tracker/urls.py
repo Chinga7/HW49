@@ -20,8 +20,8 @@ from webapp.views import HomeView, IssueView, CreateView, UpdateView, DeleteView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomeView.as_view(), name='index'),
-    path('issue/<int:pk>', IssueView.as_view(), name='issue'),
+    path('issue/<int:pk>/', IssueView.as_view(), name='issue'),
     path('create/', CreateView.as_view(), name='create'),
-    path('update/<int:pk>', UpdateView.as_view(), name='update'),
-    path('delete/<int:pk>', DeleteView.as_view(), name='delete')
+    path('update/<int:pk>/', UpdateView.as_view(), name='update'),
+    path('delete/<int:pk>/', DeleteView.as_view(), name='delete')
 ]
