@@ -1,0 +1,6 @@
+from datetime import datetime, timedelta
+from webapp.models import Issue, Type, Status
+
+done_issues = Issue.objects.filter(created_at__lte=datetime.today(), created_at__gt=datetime.today() - timedelta(days=30)).filter(status=3).all()
+type_or_status = Issue.objects.filter(status=1) | Issue.objects.filter(status=2).filter(type=2) | Issue.objects.filter(type=3).all()
+bug_and_not_finished = Issue.objects.filter(type=2).exclude(status=3).all()
